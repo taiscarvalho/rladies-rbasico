@@ -1,0 +1,2831 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>R para iniciantes</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Taís Maria Nunes Carvalho" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/rladies-fonts.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/rladies.css" rel="stylesheet" />
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# R para iniciantes
+### Taís Maria Nunes Carvalho
+### R-Ladies Fortaleza
+### 27/07/2020
+
+---
+
+
+# Olá!
+
+- Engenheira Ambiental (UFC)
+
+--
+
+- Mestre em Eng. Civil (Recursos Hídricos)
+
+--
+
+- Estudante de doutorado em Eng. Civil (Recursos Hídricos)
+
+---
+
+# Quem somos?
+
+.pull-left[
+[**R-Ladies**](https://rladies.org) é uma organização mundial que visa promover a diversidade de gênero na comunidade R.
+
+Fundada pela [Gabriela de Queiroz](https://k-roz.com/) em 2012. O primeiro encontro foi em São Francisco (EUA).
+
+
+
+]
+.pull-right[
+&lt;img src="img/rladies-hor.png" width="70%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# R-Ladies
+
+&lt;img src="img/rladies-info.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+.center[
+Esse é o primeiro encontro do capítulo de Fortaleza 🥳
+]
+
+---
+
+# A linguagem R
+
+### Por que R?
+
+- Open source
+
+--
+
+- Comunidade colaborativa
+
+--
+
+- Grande disponibilidade de pacotes e ferramentas
+
+---
+
+# A linguagem R
+
+### Comunidade R e onde tirar dúvidas
+
+- Twitter **#rstats**
+
+- Google (sério!)
+
+- [Stack Overflow](https://pt.stackoverflow.com/questions/tagged/r) (fique atentx às regras da comunidade!)
+
+---
+
+# Visualização de dados
+
+- Temperatura máxima em Fortaleza
+  
+&lt;img src="img/temp-fort.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Visualização de dados
+
+- Demanda residencial de água
+  
+&lt;img src="img/consumo-agua.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Visualização de dados
+
+&lt;img src="img/BBC-style.png" width="100%" style="display: block; margin: auto;" /&gt;
+.center[
+[Fonte](http://www.interhacktives.com/2020/03/09/how-to-create-bbc-style-graphics-with-r-a-bbplot-tutorial/)]
+
+---
+
+# Visualização de dados
+
+- Mapa temático
+  
+&lt;img src="img/bivariate-map.png" width="70%" style="display: block; margin: auto;" /&gt;
+.center[
+Tutorial [aqui](https://timogrossenbacher.ch/2019/04/bivariate-maps-with-ggplot2-and-sf/)
+]
+
+---
+
+# A linguagem R
+
+### Algumas aplicações
+
+- [Jornalismo de dados](https://www.curso-de-programacao-em-r-para-jornalistas.com/)
+
+- [Ecologia](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/ecs2.1394)
+
+- [Processamento de linguagem natural](https://www.kaggle.com/rtatman/nlp-in-r-topic-modelling)
+  - [Análise de clássicos da literatura brasileira](http://sillasgonzaga.com/post/literaturabr-01/) - Sillas Gonzaga
+
+- Análise de dados
+
+  - [Analisando o seu histórico da Netflix](https://www.curso-r.com/blog/2019-06-05-netflix) - William Amorim | Curso-R
+
+- Criação de dashboards, relatórios, livros
+
+  - [R-Ladies](https://benubah.github.io/r-community-explorer/rladies.html)
+  
+  - [Despesas com educação x IDEB](https://analise-siconfi-ideb.tesouro.gov.br) - Fernando Barbalho
+
+---
+
+# Primeiros passos: instalação
+
+- Instale o **R** a partir do [CRAN](https://cran.r-project.org/)
+
+--
+
+- Baixe o **RStudio** [aqui](https://www.rstudio.com/products/rstudio/download/)
+
+O **RStudio** é o IDE (Integrated Development Environment) da linguagem R.
+
+--
+
+- Crie um novo R script: `File -&gt; New File -&gt; R Script`
+
+---
+
+# O ambiente do RStudio
+
+### File &gt; New File &gt; R Script
+
+&lt;img src="img/rstudio.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# O ambiente do RStudio
+
+### Editor
+
+&lt;img src="img/editor_rstudio.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# O ambiente do RStudio
+
+### Console
+
+&lt;img src="img/console_rstudio.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# O ambiente do RStudio
+
+### Environment
+
+&lt;img src="img/env_rstudio.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# O ambiente do RStudio
+
+### Output 
+
+&lt;img src="img/output_rstudio.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Tipos de variáveis
+
+### Numéricas e inteiros
+
+
+```r
+a &lt;- 2
+b &lt;- 1.5
+c &lt;- 3L
+
+class(a)
+```
+
+```
+## [1] "numeric"
+```
+
+```r
+class(b)
+```
+
+```
+## [1] "numeric"
+```
+
+```r
+class(c)
+```
+
+```
+## [1] "integer"
+```
+
+---
+
+# Tipos de variáveis
+
+### Caracteres
+
+
+```r
+letra &lt;- "R"
+mensagem &lt;- "Bem-vindas ao R-Ladies Fortaleza!"
+class(letra)
+```
+
+```
+## [1] "character"
+```
+
+```r
+class(mensagem)
+```
+
+```
+## [1] "character"
+```
+
+---
+
+# Tipos de variáveis
+
+### Valores lógicos
+
+.pull-left[
+
+```r
+c &lt;- TRUE
+d &lt;- FALSE
+class(c)
+```
+
+```
+## [1] "logical"
+```
+
+```r
+a &lt;- 2
+b &lt;- 1.5
+b &gt; 6
+```
+
+```
+## [1] FALSE
+```
+
+```r
+a == b
+```
+
+```
+## [1] FALSE
+```
+]
+
+.pull-right[
+
+```r
+a == b
+```
+
+```
+## [1] FALSE
+```
+
+```r
+a != b  #operador "diferente"
+```
+
+```
+## [1] TRUE
+```
+
+```r
+b &gt; 6 &amp; b &lt;= 2  #operador E
+```
+
+```
+## [1] FALSE
+```
+
+```r
+b &gt; 6 | a &gt; 1   #operador OU
+```
+
+```
+## [1] TRUE
+```
+]
+---
+
+### Operadores aritméticos
+
+
+```r
+a + b   #soma
+```
+
+```
+## [1] 3.5
+```
+
+```r
+a - b   #subtração
+```
+
+```
+## [1] 0.5
+```
+
+```r
+a / b   #divisão
+```
+
+```
+## [1] 1.333333
+```
+
+```r
+a * b   #multiplicação
+```
+
+```
+## [1] 3
+```
+
+```r
+a ^ b   #potenciação
+```
+
+```
+## [1] 2.828427
+```
+
+---
+
+# Estruturas de dados
+
+### Vetores
+
+
+```r
+custo_produtos &lt;- c(15.50, 20.70, 13.20, 14, 19.30)
+class(custo_produtos)
+```
+
+```
+## [1] "numeric"
+```
+
+```r
+1:6
+```
+
+```
+## [1] 1 2 3 4 5 6
+```
+
+```r
+cod_produtos &lt;- c("A1", "B2", "A3", "A4", "B5")
+class(cod_produtos)
+```
+
+```
+## [1] "character"
+```
+
+---
+
+# Operações com vetores
+
+.pull-left[
+
+```r
+length(custo_produtos)
+```
+
+```
+## [1] 5
+```
+
+```r
+custo_produtos[1]
+```
+
+```
+## [1] 15.5
+```
+
+```r
+custo_produtos[-1]
+```
+
+```
+## [1] 20.7 13.2 14.0 19.3
+```
+
+```r
+custo_produtos[c(1, 3, 5)]
+```
+
+```
+## [1] 15.5 13.2 19.3
+```
+
+```r
+aumento &lt;- 1.1
+custo_produtos * aumento
+```
+
+```
+## [1] 17.05 22.77 14.52 15.40 21.23
+```
+]
+
+.pull-right[
+
+```r
+custo_produtos + 5
+```
+
+```
+## [1] 20.5 25.7 18.2 19.0 24.3
+```
+
+```r
+custo_produtos &lt; 19
+```
+
+```
+## [1]  TRUE FALSE  TRUE  TRUE FALSE
+```
+
+```r
+custo_produtos[custo_produtos &lt; 19]
+```
+
+```
+## [1] 15.5 13.2 14.0
+```
+
+```r
+custo_produtos[c(TRUE, FALSE, TRUE, TRUE, FALSE)]
+```
+
+```
+## [1] 15.5 13.2 14.0
+```
+]
+
+---
+
+# Estruturas de dados
+
+### Dataframes
+
+
+```r
+lista_produtos &lt;- data.frame(custo_produtos, cod_produtos)
+lista_produtos
+```
+
+```
+##   custo_produtos cod_produtos
+## 1           15.5           A1
+## 2           20.7           B2
+## 3           13.2           A3
+## 4           14.0           A4
+## 5           19.3           B5
+```
+
+---
+
+# Estruturas de dados
+
+### Dataframes
+
+.pull-left[
+
+```r
+nrow(lista_produtos)
+```
+
+```
+## [1] 5
+```
+
+```r
+ncol(lista_produtos)
+```
+
+```
+## [1] 2
+```
+
+```r
+colnames(lista_produtos)
+```
+
+```
+## [1] "custo_produtos" "cod_produtos"
+```
+
+```r
+rownames(lista_produtos)
+```
+
+```
+## [1] "1" "2" "3" "4" "5"
+```
+]
+
+.pull-right[
+
+```r
+# acessar coluna 
+# "custo_produtos"
+lista_produtos["custo_produtos"]
+```
+
+```
+##   custo_produtos
+## 1           15.5
+## 2           20.7
+## 3           13.2
+## 4           14.0
+## 5           19.3
+```
+
+```r
+# outra forma de acessar 
+# a coluna "custo_produtos"
+lista_produtos$custo_produtos
+```
+
+```
+## [1] 15.5 20.7 13.2 14.0 19.3
+```
+
+]
+---
+
+# Funções
+
+
+```r
+custo_produtos
+```
+
+```
+## [1] 15.5 20.7 13.2 14.0 19.3
+```
+
+```r
+max(custo_produtos)
+```
+
+```
+## [1] 20.7
+```
+
+```r
+mean(custo_produtos)
+```
+
+```
+## [1] 16.54
+```
+
+```r
+num &lt;- 15.78364
+round(x = num, digits = 2)
+```
+
+```
+## [1] 15.78
+```
+
+---
+
+# Tidyverse
+
+&lt;img src="img/tidyverse-pkgs.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+.center[
+[**Documentação do Tidyverse**](https://www.tidyverse.org/)
+]
+---
+
+# O operador pipe %&gt;%
+
+.pull-left[
+
+
+
+```r
+custo_produtos
+```
+
+```
+## [1] 15.5 20.7 13.2 14.0 19.3
+```
+
+```r
+mean(custo_produtos)
+```
+
+```
+## [1] 16.54
+```
+
+```r
+custo_produtos %&gt;% mean()
+```
+
+```
+## [1] 16.54
+```
+
+Atalho para usar o %&gt;%: 
+
+`ctrl + shift + M`
+]
+
+.pull-right[
+&lt;img src="img/pipe.png" width="50%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Pacote dplyr
+
+
+```r
+install.packages("dplyr")
+library(dplyr)
+```
+
+#### Base de dados: starwars
+
+
+```
+## # A tibble: 87 x 14
+##    name  height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Luke~    172    77 blond      fair       blue            19   male  mascu~
+##  2 C-3PO    167    75 &lt;NA&gt;       gold       yellow         112   none  mascu~
+##  3 R2-D2     96    32 &lt;NA&gt;       white, bl~ red             33   none  mascu~
+##  4 Dart~    202   136 none       white      yellow          41.9 male  mascu~
+##  5 Leia~    150    49 brown      light      brown           19   fema~ femin~
+##  6 Owen~    178   120 brown, gr~ light      blue            52   male  mascu~
+##  7 Beru~    165    75 brown      light      blue            47   fema~ femin~
+##  8 R5-D4     97    32 &lt;NA&gt;       white, red red             NA   none  mascu~
+##  9 Bigg~    183    84 black      light      brown           24   male  mascu~
+## 10 Obi-~    182    77 auburn, w~ fair       blue-gray       57   male  mascu~
+## # ... with 77 more rows, and 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;,
+## #   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;
+```
+
+---
+
+# Funções do pacote dplyr
+
+#### Selecionar variáveis: select
+
+
+```r
+library(dplyr)
+starwars %&gt;%
+* select(name, height, mass)
+```
+
+```
+## # A tibble: 87 x 3
+##    name               height  mass
+##    &lt;chr&gt;               &lt;int&gt; &lt;dbl&gt;
+##  1 Luke Skywalker        172    77
+##  2 C-3PO                 167    75
+##  3 R2-D2                  96    32
+##  4 Darth Vader           202   136
+##  5 Leia Organa           150    49
+##  6 Owen Lars             178   120
+##  7 Beru Whitesun lars    165    75
+##  8 R5-D4                  97    32
+##  9 Biggs Darklighter     183    84
+## 10 Obi-Wan Kenobi        182    77
+## # ... with 77 more rows
+```
+
+---
+
+# Funções do pacote dplyr
+
+#### Criar, modificar e deletar colunas: mutate
+
+
+```r
+starwars %&gt;%
+  select(name, height, mass) %&gt;%
+* mutate(imc = mass/height^2)
+```
+
+```
+## # A tibble: 87 x 4
+##    name               height  mass     imc
+##    &lt;chr&gt;               &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Luke Skywalker        172    77 0.00260
+##  2 C-3PO                 167    75 0.00269
+##  3 R2-D2                  96    32 0.00347
+##  4 Darth Vader           202   136 0.00333
+##  5 Leia Organa           150    49 0.00218
+##  6 Owen Lars             178   120 0.00379
+##  7 Beru Whitesun lars    165    75 0.00275
+##  8 R5-D4                  97    32 0.00340
+##  9 Biggs Darklighter     183    84 0.00251
+## 10 Obi-Wan Kenobi        182    77 0.00232
+## # ... with 77 more rows
+```
+
+---
+
+# Funções do pacote dplyr
+
+#### Escolher observações com base nos seus valores: filter
+
+
+```r
+starwars %&gt;%
+  select(name, species, height, mass) %&gt;%
+* filter(species == "Human") %&gt;%
+  mutate(imc = mass/height^2)
+```
+
+```
+## # A tibble: 35 x 5
+##    name               species height  mass      imc
+##    &lt;chr&gt;              &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;    &lt;dbl&gt;
+##  1 Luke Skywalker     Human      172    77  0.00260
+##  2 Darth Vader        Human      202   136  0.00333
+##  3 Leia Organa        Human      150    49  0.00218
+##  4 Owen Lars          Human      178   120  0.00379
+##  5 Beru Whitesun lars Human      165    75  0.00275
+##  6 Biggs Darklighter  Human      183    84  0.00251
+##  7 Obi-Wan Kenobi     Human      182    77  0.00232
+##  8 Anakin Skywalker   Human      188    84  0.00238
+##  9 Wilhuff Tarkin     Human      180    NA NA      
+## 10 Han Solo           Human      180    80  0.00247
+## # ... with 25 more rows
+```
+
+---
+
+# Funções do pacote dplyr
+
+#### Escolher observações com base nos seus valores: filter
+
+
+```r
+starwars %&gt;%
+  select(name, species, height, mass) %&gt;%
+* filter(mass &gt; 100 &amp; height &gt; 110) %&gt;%
+  mutate(imc = mass/height^2)
+```
+
+```
+## # A tibble: 10 x 5
+##    name                  species    height  mass     imc
+##    &lt;chr&gt;                 &lt;chr&gt;       &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Darth Vader           Human         202   136 0.00333
+##  2 Owen Lars             Human         178   120 0.00379
+##  3 Chewbacca             Wookiee       228   112 0.00215
+##  4 Jabba Desilijic Tiure Hutt          175  1358 0.0443 
+##  5 Jek Tono Porkins      Human         180   110 0.00340
+##  6 IG-88                 Droid         200   140 0.0035 
+##  7 Bossk                 Trandoshan    190   113 0.00313
+##  8 Dexter Jettster       Besalisk      198   102 0.00260
+##  9 Grievous              Kaleesh       216   159 0.00341
+## 10 Tarfful               Wookiee       234   136 0.00248
+```
+
+---
+
+# Funções do pacote dplyr
+
+#### Agrupar e resumir valores: group_by e summarise
+
+
+```r
+starwars %&gt;%
+  select(name, species, gender, height, mass) %&gt;%
+  filter(species == "Human") %&gt;%
+  mutate(imc = mass/height^2) %&gt;%
+* group_by(gender) %&gt;%
+* summarise(mean = mean(imc, na.rm = T))
+```
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
+```
+## # A tibble: 2 x 2
+##   gender       mean
+##   &lt;chr&gt;       &lt;dbl&gt;
+## 1 feminine  0.00220
+## 2 masculine 0.00260
+```
+
+---
+
+# Funções do pacote dplyr
+
+#### Mudar a ordem das linhas: arrange
+
+
+```r
+starwars %&gt;%
+  select(name, species, gender, height, mass) %&gt;%
+  filter(species == "Human") %&gt;%
+* arrange(desc(height))
+```
+
+```
+## # A tibble: 35 x 5
+##    name                species gender    height  mass
+##    &lt;chr&gt;               &lt;chr&gt;   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt;
+##  1 Darth Vader         Human   masculine    202 136  
+##  2 Qui-Gon Jinn        Human   masculine    193  89  
+##  3 Dooku               Human   masculine    193  80  
+##  4 Bail Prestor Organa Human   masculine    191  NA  
+##  5 Anakin Skywalker    Human   masculine    188  84  
+##  6 Mace Windu          Human   masculine    188  84  
+##  7 Raymus Antilles     Human   masculine    188  79  
+##  8 Gregar Typho        Human   masculine    185  85  
+##  9 Biggs Darklighter   Human   masculine    183  84  
+## 10 Boba Fett           Human   masculine    183  78.2
+## # ... with 25 more rows
+```
+
+---
+
+# Funções do pacote dplyr
+
+#### Mudar a ordem das linhas: arrange
+
+
+```r
+starwars %&gt;%
+  select(name, species, gender, height, mass) %&gt;%
+  filter(species == "Human") %&gt;%
+* group_by(gender) %&gt;%
+* arrange(desc(height), .by_group = TRUE)
+```
+
+```
+## # A tibble: 35 x 5
+## # Groups:   gender [2]
+##    name               species gender    height  mass
+##    &lt;chr&gt;              &lt;chr&gt;   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt;
+##  1 Jocasta Nu         Human   feminine     167    NA
+##  2 Beru Whitesun lars Human   feminine     165    75
+##  3 Dormé              Human   feminine     165    NA
+##  4 Padmé Amidala      Human   feminine     165    45
+##  5 Shmi Skywalker     Human   feminine     163    NA
+##  6 Cordé              Human   feminine     157    NA
+##  7 Leia Organa        Human   feminine     150    49
+##  8 Mon Mothma         Human   feminine     150    NA
+##  9 Rey                Human   feminine      NA    NA
+## 10 Darth Vader        Human   masculine    202   136
+## # ... with 25 more rows
+```
+
+---
+
+# Tipos de união: inner join
+
+.pull-left[
+
+```r
+band_members
+```
+
+```
+## # A tibble: 3 x 2
+##   name  band   
+##   &lt;chr&gt; &lt;chr&gt;  
+## 1 Mick  Stones 
+## 2 John  Beatles
+## 3 Paul  Beatles
+```
+
+```r
+band_members %&gt;% 
+  inner_join(band_instruments)
+```
+
+```
+## Joining, by = "name"
+```
+
+```
+## # A tibble: 2 x 3
+##   name  band    plays 
+##   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; 
+## 1 John  Beatles guitar
+## 2 Paul  Beatles bass
+```
+]
+
+.pull-right[
+
+```r
+band_instruments
+```
+
+```
+## # A tibble: 3 x 2
+##   name  plays 
+##   &lt;chr&gt; &lt;chr&gt; 
+## 1 John  guitar
+## 2 Paul  bass  
+## 3 Keith guitar
+```
+
+&lt;img src="https://raw.githubusercontent.com/gadenbuie/tidyexplain/master/images/inner-join.gif" width="80%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Tipos de união: left join
+
+.pull-left[
+
+```r
+band_members
+```
+
+```
+## # A tibble: 3 x 2
+##   name  band   
+##   &lt;chr&gt; &lt;chr&gt;  
+## 1 Mick  Stones 
+## 2 John  Beatles
+## 3 Paul  Beatles
+```
+
+```r
+band_members %&gt;% 
+  left_join(band_instruments)
+```
+
+```
+## Joining, by = "name"
+```
+
+```
+## # A tibble: 3 x 3
+##   name  band    plays 
+##   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; 
+## 1 Mick  Stones  &lt;NA&gt;  
+## 2 John  Beatles guitar
+## 3 Paul  Beatles bass
+```
+]
+
+.pull-right[
+
+```r
+band_instruments
+```
+
+```
+## # A tibble: 3 x 2
+##   name  plays 
+##   &lt;chr&gt; &lt;chr&gt; 
+## 1 John  guitar
+## 2 Paul  bass  
+## 3 Keith guitar
+```
+
+&lt;img src="https://raw.githubusercontent.com/gadenbuie/tidyexplain/master/images/left-join.gif" width="80%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Tipos de união: right join
+
+
+.pull-left[
+
+```r
+band_members
+```
+
+```
+## # A tibble: 3 x 2
+##   name  band   
+##   &lt;chr&gt; &lt;chr&gt;  
+## 1 Mick  Stones 
+## 2 John  Beatles
+## 3 Paul  Beatles
+```
+
+```r
+band_members %&gt;% 
+  right_join(band_instruments)
+```
+
+```
+## Joining, by = "name"
+```
+
+```
+## # A tibble: 3 x 3
+##   name  band    plays 
+##   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; 
+## 1 John  Beatles guitar
+## 2 Paul  Beatles bass  
+## 3 Keith &lt;NA&gt;    guitar
+```
+]
+
+.pull-right[
+
+```r
+band_instruments
+```
+
+```
+## # A tibble: 3 x 2
+##   name  plays 
+##   &lt;chr&gt; &lt;chr&gt; 
+## 1 John  guitar
+## 2 Paul  bass  
+## 3 Keith guitar
+```
+
+&lt;img src="https://raw.githubusercontent.com/gadenbuie/tidyexplain/master/images/right-join.gif" width="80%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Tipos de união: full join
+
+.pull-left[
+
+```r
+band_members
+```
+
+```
+## # A tibble: 3 x 2
+##   name  band   
+##   &lt;chr&gt; &lt;chr&gt;  
+## 1 Mick  Stones 
+## 2 John  Beatles
+## 3 Paul  Beatles
+```
+
+```r
+band_members %&gt;% 
+  full_join(band_instruments)
+```
+
+```
+## Joining, by = "name"
+```
+
+```
+## # A tibble: 4 x 3
+##   name  band    plays 
+##   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; 
+## 1 Mick  Stones  &lt;NA&gt;  
+## 2 John  Beatles guitar
+## 3 Paul  Beatles bass  
+## 4 Keith &lt;NA&gt;    guitar
+```
+]
+
+.pull-right[
+
+```r
+band_instruments
+```
+
+```
+## # A tibble: 3 x 2
+##   name  plays 
+##   &lt;chr&gt; &lt;chr&gt; 
+## 1 John  guitar
+## 2 Paul  bass  
+## 3 Keith guitar
+```
+
+&lt;img src="https://raw.githubusercontent.com/gadenbuie/tidyexplain/master/images/full-join.gif" width="80%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Trabalhando com dados reais
+
+- Base de dados: Educação (Ensino Fundamental)
+
+[IPECE](http://ipecedata.ipece.ce.gov.br/ipece-data-web/) - Instituto de pesquisa e estratégia econômica do Ceará
+
+--
+
+&lt;div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:100%; "&gt;&lt;table class="table" style="font-size: 12px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Abrangência Geografica &lt;/th&gt;
+   &lt;th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"&gt; Ano &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; regiao mapa &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Nome Curto Indicador &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; regiao_metropolitana &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; regiao_planejamento &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Tema &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Abrangencia Geografica &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Ano completo &lt;/th&gt;
+   &lt;th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"&gt; Cod Ibge &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Dimensao &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Fonte &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Frequencia &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Municipio &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Nome Indicador &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Nome Indicador + Unidade de Medida  &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; nome_tabela &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Origem &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Rede Grupo &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; regionalizado &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Unidade Geográfica &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Unidade Medida &lt;/th&gt;
+   &lt;th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"&gt; Numero de Municípios &lt;/th&gt;
+   &lt;th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"&gt; Número de registros &lt;/th&gt;
+   &lt;th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"&gt; Valor &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Abaiara &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abaiara &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2300101 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abaiara &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abaiara &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 59.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Altaneira &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2015 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Altaneira &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2015 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2300606 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Altaneira &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados no ensino fundamental do SPAECE 5° ano, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.10  Média e percentual de desempenho dos alunos no ensino fundamental em Língua Portuguesa e Matemática do SPAECE 5º ano, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Altaneira &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Amontada &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2013 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Amontada &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Litoral Oeste / Vale do Curu &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2013 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2300754 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Amontada &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.1  Estabelecimentos com ensino fundamental, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Amontada &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Antonina do Norte &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2015 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Antonina do Norte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2015 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2300804 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Antonina do Norte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados no ensino fundamental do SPAECE 5° ano, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.10  Média e percentual de desempenho dos alunos no ensino fundamental em Língua Portuguesa e Matemática do SPAECE 5º ano, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Antonina do Norte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Araripe &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2015 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Araripe &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2015 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2301307 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Araripe &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados no ensino fundamental do SPAECE 5° ano, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.10  Média e percentual de desempenho dos alunos no ensino fundamental em Língua Portuguesa e Matemática do SPAECE 5º ano, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Araripe &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Altaneira &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Altaneira &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2300606 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Altaneira &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Altaneira &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Antonina do Norte &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Antonina do Norte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2300804 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Antonina do Norte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Antonina do Norte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 136.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Araripe &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Araripe &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2301307 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Araripe &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Araripe &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 140.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Apuiarés &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2013 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Apuiarés &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Litoral Oeste / Vale do Curu &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2013 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2300903 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Apuiarés &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.1  Estabelecimentos com ensino fundamental, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Apuiarés &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; General Sampaio &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2013 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; General Sampaio &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Litoral Oeste / Vale do Curu &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2013 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2304608 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; General Sampaio &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.1  Estabelecimentos com ensino fundamental, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; General Sampaio &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Irauçuba &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2013 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Irauçuba &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Litoral Oeste / Vale do Curu &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2013 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2306108 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Irauçuba &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.1  Estabelecimentos com ensino fundamental, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Irauçuba &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Assaré &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Assaré &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2301604 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Assaré &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Assaré &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 244.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Aurora &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aurora &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2301703 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aurora &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aurora &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 270.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Barro &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Barro &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2302008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Barro &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Barro &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 155.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Brejo Santo &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Brejo Santo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2302503 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Brejo Santo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Brejo Santo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 419.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Campos Sales &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Campos Sales &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2302701 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Campos Sales &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Campos Sales &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 294.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Granjeiro &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Granjeiro &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2304806 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Granjeiro &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Granjeiro &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 67.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Uruoca &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2004 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Uruoca &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Matrícula inicial no ensino fundamental - 8ª série &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Litoral Norte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2004 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2313906 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Uruoca &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Matrícula inicial no ensino fundamental, por série - 8ª série &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Matrícula inicial no ensino fundamental - 8ª série &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.5  Matrícula inicial no ensino fundamental, por série, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Uruoca &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 221.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Assaré &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2015 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Assaré &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2015 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2301604 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Assaré &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados no ensino fundamental do SPAECE 5° ano, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.10  Média e percentual de desempenho dos alunos no ensino fundamental em Língua Portuguesa e Matemática do SPAECE 5º ano, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Assaré &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Aurora &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2015 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aurora &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2015 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2301703 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aurora &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados no ensino fundamental do SPAECE 5° ano, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.10  Média e percentual de desempenho dos alunos no ensino fundamental em Língua Portuguesa e Matemática do SPAECE 5º ano, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aurora &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Barro &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2015 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Barro &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2015 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2302008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Barro &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados no ensino fundamental do SPAECE 5° ano, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.10  Média e percentual de desempenho dos alunos no ensino fundamental em Língua Portuguesa e Matemática do SPAECE 5º ano, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Barro &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Brejo Santo &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2015 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Brejo Santo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2015 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2302503 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Brejo Santo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados no ensino fundamental do SPAECE 5° ano, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.10  Média e percentual de desempenho dos alunos no ensino fundamental em Língua Portuguesa e Matemática do SPAECE 5º ano, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Brejo Santo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Campos Sales &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2015 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Campos Sales &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2015 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2302701 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Campos Sales &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados no ensino fundamental do SPAECE 5° ano, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.10  Média e percentual de desempenho dos alunos no ensino fundamental em Língua Portuguesa e Matemática do SPAECE 5º ano, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Campos Sales &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Granjeiro &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2015 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Granjeiro &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2015 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2304806 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Granjeiro &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados no ensino fundamental do SPAECE 5° ano, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.10  Média e percentual de desempenho dos alunos no ensino fundamental em Língua Portuguesa e Matemática do SPAECE 5º ano, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Granjeiro &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Itapajé &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2013 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Itapajé &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Litoral Oeste / Vale do Curu &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2013 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2306306 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Itapajé &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.1  Estabelecimentos com ensino fundamental, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Itapajé &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Itapipoca &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2013 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Itapipoca &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Litoral Oeste / Vale do Curu &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2013 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2306405 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Itapipoca &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.1  Estabelecimentos com ensino fundamental, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Itapipoca &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Miraíma &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2013 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Miraíma &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Litoral Oeste / Vale do Curu &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2013 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2308377 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Miraíma &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.1  Estabelecimentos com ensino fundamental, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Miraíma &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Pentecoste &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2013 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Pentecoste &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Litoral Oeste / Vale do Curu &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2013 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2310704 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Pentecoste &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estabelecimentos com ensino fundamental - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.1  Estabelecimentos com ensino fundamental, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Pentecoste &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Aratuba &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2015 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aratuba &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Desempenho em língua portuguesa do SPAECE Alfa 2º ano - Alfabetizado - Municipal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Maciço de Baturité &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2015 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2301406 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aratuba &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Percentual de desempenho dos alunos no ensino fundamental em língua portuguesa do SPAECE Alfa 2º ano, por dependência administrativa - Alfabetizado - Municipal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Desempenho em língua portuguesa do SPAECE Alfa 2º ano - Alfabetizado - Municipal (%) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.9  Média e percentual de desempenho dos alunos no ensino fundamental em Língua Portuguesa do SPAECE Alfa 2º ano, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; não &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aratuba &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; (%) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Acaraú &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2004 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Acaraú &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Matrícula inicial no ensino fundamental - 9ª série &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Litoral Norte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2004 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2300200 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Acaraú &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Matrícula inicial no ensino fundamental, por série - 9ª série &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Matrícula inicial no ensino fundamental - 9ª série &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.5  Matrícula inicial no ensino fundamental, por série, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Acaraú &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Barroquinha &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2004 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Barroquinha &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Matrícula inicial no ensino fundamental - 9ª série &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Litoral Norte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2004 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2302057 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Barroquinha &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Matrícula inicial no ensino fundamental, por série - 9ª série &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Matrícula inicial no ensino fundamental - 9ª série &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.5  Matrícula inicial no ensino fundamental, por série, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Barroquinha &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Bela Cruz &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2004 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Bela Cruz &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Matrícula inicial no ensino fundamental - 9ª série &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Litoral Norte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2004 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2302305 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Bela Cruz &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Matrícula inicial no ensino fundamental, por série - 9ª série &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Matrícula inicial no ensino fundamental - 9ª série &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.5  Matrícula inicial no ensino fundamental, por série, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Bela Cruz &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Camocim &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2004 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Camocim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Matrícula inicial no ensino fundamental - 9ª série &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Litoral Norte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2004 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2302602 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Camocim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Matrícula inicial no ensino fundamental, por série - 9ª série &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Matrícula inicial no ensino fundamental - 9ª série &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.5  Matrícula inicial no ensino fundamental, por série, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Camocim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Meruoca &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2015 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Meruoca &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Índice de Desenvolvimento da Educação Básica (IDEB) - Anos iniciais (5º ano) - Rede federal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Região Metropolitana de Sobral &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sertão de Sobral &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2015 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2308203 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Meruoca &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Índice de Desenvolvimento da Educação Básica (IDEB) - Anos iniciais (5º ano) - Rede Federal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Índice de Desenvolvimento da Educação Básica (IDEB) - Anos iniciais (5º ano) - Rede federal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.12  Índice de Desenvolvimento da Educação Básica anos iniciais e finais no ensino fundamental, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Meruoca &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Itarema &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2010 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Itarema &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Taxa de reprovação no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Litoral Norte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2010 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2306553 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Itarema &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Taxas de rendimento escolar no ensino fundamental - Reprovação - Total &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Taxa de reprovação no ensino fundamental (%) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.8  Taxas de rendimento escolar no ensino fundamental, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; não &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Itarema &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; (%) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Jati &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Jati &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2307205 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Jati &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Jati &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 32.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Lavras da Mangabeira &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Lavras da Mangabeira &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2307502 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Lavras da Mangabeira &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Lavras da Mangabeira &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 314.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Mauriti &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Mauriti &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2308104 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Mauriti &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Mauriti &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 385.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Milagres &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Milagres &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2308302 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Milagres &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Milagres &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 228.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Penaforte &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Penaforte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2310605 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Penaforte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Penaforte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 105.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Porteiras &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Porteiras &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2311108 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Porteiras &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Porteiras &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 164.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Potengi &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Potengi &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2311207 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Potengi &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Potengi &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 198.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Salitre &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Salitre &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2311959 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Salitre &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Salitre &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 572.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Tarrafas &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tarrafas &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2313252 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tarrafas &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tarrafas &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 78.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Várzea Alegre &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Várzea Alegre &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2314003 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Várzea Alegre &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abandono no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Várzea Alegre &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 166.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Abaiara &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abaiara &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aprovação no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2300101 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abaiara &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aprovação no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aprovação no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Abaiara &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1612.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Altaneira &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Altaneira &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aprovação no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2008 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2300606 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Altaneira &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aprovação no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aprovação no ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Altaneira &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1249.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Maranguape &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2014 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Maranguape &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Desempenho em matemática - SPAECE 5º ano - Rede estadual - Intermediário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Região Metropolitana de Fortaleza &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Grande Fortaleza &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2014 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2307700 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Maranguape &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Percentual de desempenho dos alunos no ensino fundamental em matemática do SPAECE 5° ano, por dependência administrativa - Intermediário - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Desempenho em matemática - SPAECE 5º ano - Rede estadual - Intermediário (%) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.10  Média e percentual de desempenho dos alunos no ensino fundamental em Língua Portuguesa e Matemática do SPAECE 5º ano, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; não &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Maranguape &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; (%) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Marco &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2014 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Marco &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Desempenho em matemática - SPAECE 5º ano - Rede estadual - Intermediário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Litoral Norte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2014 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2307809 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Marco &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Percentual de desempenho dos alunos no ensino fundamental em matemática do SPAECE 5° ano, por dependência administrativa - Intermediário - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Desempenho em matemática - SPAECE 5º ano - Rede estadual - Intermediário (%) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.10  Média e percentual de desempenho dos alunos no ensino fundamental em Língua Portuguesa e Matemática do SPAECE 5º ano, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; não &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Marco &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; (%) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Jati &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2015 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Jati &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios não Metropolitanos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cariri &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ensino fundamental &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estado, Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 01/01/2015 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2307205 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Educação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Secretaria da Educação (SEDUC). &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Jati &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados no ensino fundamental do SPAECE 5° ano, por dependência administrativa - Estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alunos avaliados - SPAECE 5º ano - Rede estadual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tabela 3.3.10  Média e percentual de desempenho dos alunos no ensino fundamental em Língua Portuguesa e Matemática do SPAECE 5º ano, por dependência administrativa, segundo os municípios - Ceará &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Anuário &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Municípios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Jati &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;
+
+---
+
+# Preparação dos dados
+
+
+```r
+library(readr)
+
+dados_ens_fund &lt;- read_delim("data/data_ens_fundamental.csv",
+                   delim = ";")
+
+colnames(dados_ens_fund)
+```
+
+```
+##  [1] "Abrangência Geografica"              "Ano"                                
+##  [3] "regiao mapa"                         "Nome Curto Indicador"               
+##  [5] "regiao_metropolitana"                "regiao_planejamento"                
+##  [7] "Tema"                                "Abrangencia Geografica"             
+##  [9] "Ano completo"                        "Cod Ibge"                           
+## [11] "Dimensao"                            "Fonte"                              
+## [13] "Frequencia"                          "Municipio"                          
+## [15] "Nome Indicador"                      "Nome Indicador + Unidade de Medida "
+## [17] "nome_tabela"                         "Origem"                             
+## [19] "Rede Grupo"                          "regionalizado"                      
+## [21] "Unidade Geográfica"                  "Unidade Medida"                     
+## [23] "Numero de Municípios"                "Número de registros"                
+## [25] "Valor"
+```
+
+---
+
+# Preparação dos dados
+
+
+```r
+library(janitor)
+
+dados_ens_fund &lt;- read_delim("data/data_ens_fundamental.csv",
+                   delim = ";") %&gt;%
+* janitor::clean_names()
+
+colnames(dados_ens_fund)
+```
+
+```
+##  [1] "abrangencia_geografica"           "ano"                             
+##  [3] "regiao_mapa"                      "nome_curto_indicador"            
+##  [5] "regiao_metropolitana"             "regiao_planejamento"             
+##  [7] "tema"                             "abrangencia_geografica_2"        
+##  [9] "ano_completo"                     "cod_ibge"                        
+## [11] "dimensao"                         "fonte"                           
+## [13] "frequencia"                       "municipio"                       
+## [15] "nome_indicador"                   "nome_indicador_unidade_de_medida"
+## [17] "nome_tabela"                      "origem"                          
+## [19] "rede_grupo"                       "regionalizado"                   
+## [21] "unidade_geografica"               "unidade_medida"                  
+## [23] "numero_de_municipios"             "numero_de_registros"             
+## [25] "valor"
+```
+
+---
+
+# Preparação dos dados
+
+
+```r
+library(dplyr)
+
+dados_ens_fund &lt;- read_delim("data/data_ens_fundamental.csv",
+                   delim = ";") %&gt;%
+  janitor::clean_names() %&gt;%
+* select(c("ano", "nome_curto_indicador",
+*          "regiao_planejamento", "municipio", "valor"))
+
+head(dados_ens_fund, 5)
+```
+
+```
+## # A tibble: 5 x 5
+##     ano nome_curto_indicador             regiao_planejamento  municipio    valor
+##   &lt;dbl&gt; &lt;chr&gt;                            &lt;chr&gt;                &lt;chr&gt;        &lt;dbl&gt;
+## 1  2008 Abandono no ensino fundamental   Cariri               Abaiara         59
+## 2  2015 Alunos avaliados - SPAECE 5º an~ Cariri               Altaneira       NA
+## 3  2013 Estabelecimentos com ensino fun~ Litoral Oeste / Val~ Amontada        NA
+## 4  2015 Alunos avaliados - SPAECE 5º an~ Cariri               Antonina do~    NA
+## 5  2015 Alunos avaliados - SPAECE 5º an~ Cariri               Araripe         NA
+```
+
+---
+
+# Preparação dos dados
+
+
+```r
+dados_ens_fund &lt;- read_delim("data/data_ens_fundamental.csv",
+                   delim = ";") %&gt;%
+  janitor::clean_names() %&gt;%
+  select(c("ano", "nome_curto_indicador",
+           "regiao_planejamento", "municipio", "valor")) %&gt;%
+* filter(regiao_planejamento == "Grande Fortaleza",
+*        nome_curto_indicador == "Taxa de distorção idade/série no ensino fundamental")
+```
+
+---
+
+# Visualização dos dados
+
+.pull-left[
+
+```r
+library(ggplot2)
+
+ggplot(data = dados_ens_fund,
+       aes(x = ano, y = municipio, fill = valor)) +
+  geom_tile() +
+    labs(title = "Taxa de distorção idade/série no Ens. fundamental",
+       y = NULL, x = NULL) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90)) +
+  scale_fill_distiller(palette = "RdYlBu") +
+  scale_x_continuous(breaks = c(2007:2018),
+                     labels = c(2007:2018))
+```
+]
+
+.pull-right[
+![](index_files/figure-html/plot-heatmap-1.png)
+]
+
+---
+
+# Para aprender mais
+
+### Cursos e tutoriais
+
+- [Introduction to R](https://tinystats.github.io/teacups-giraffes-and-statistics/01_introToR.html)
+
+- [R bootcamp](https://r-bootcamp.netlify.app/)
+
+- Pacote [swirl](https://swirlstats.com/)
+
+
+```r
+  install.packages("swirl")
+  library(swirl)
+  swirl()
+```
+
+--
+
+### Livros
+
+- Livro da [Curso-R](https://livro.curso-r.com/index.html)
+
+- [An introduction to statistical learning](http://faculty.marshall.usc.edu/gareth-james/ISL/)
+
+- [R for Data Science](https://r4ds.had.co.nz/) - Hadley Wickham &amp; Garrett Grolemund
+
+---
+
+class: center, middle
+
+# Obrigada!
+
+Slides criados com o pacote [xaringan](https://github.com/yihui/xaringan)
+
+Agradecimentos a [Beatriz Milz](https://github.com/beatrizmilz) pelo [curso de xaringan](https://github.com/beatrizmilz/aMostra-IME-2019-Xaringan)
+
+Gifs do tidyverse criados por [Garrick Aden‑Buie](https://www.garrickadenbuie.com/project/tidyexplain/)
+
+&lt;img src="img/rladies-hor.png" width="50%" style="display: block; margin: auto;" /&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
