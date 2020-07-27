@@ -167,8 +167,6 @@ O **RStudio** é o IDE (Integrated Development Environment) da linguagem R.
 
 # O ambiente do RStudio
 
-### File > New File > R Script
-
 ```{r echo = FALSE, out.width = "90%", fig.align = "center"}
 knitr::include_graphics("img/rstudio.png")
 ```
