@@ -650,25 +650,10 @@ colnames(dados_ens_fund)
 # Preparação dos dados
 
 ```{r message = FALSE}
-library(janitor)
-
-dados_ens_fund <- read_delim("data/data_ens_fundamental.csv",
-                   delim = ";") %>%
-  janitor::clean_names() #<<
-
-colnames(dados_ens_fund)
-```
-
----
-
-# Preparação dos dados
-
-```{r message = FALSE}
 library(dplyr)
 
 dados_ens_fund <- read_delim("data/data_ens_fundamental.csv",
                    delim = ";") %>%
-  janitor::clean_names() %>%
   select(c("ano", "nome_curto_indicador",                #<<
            "regiao_planejamento", "municipio", "valor")) #<<
 
@@ -682,7 +667,6 @@ head(dados_ens_fund, 5)
 ```{r message = FALSE}
 dados_ens_fund <- read_delim("data/data_ens_fundamental.csv",
                    delim = ";") %>%
-  janitor::clean_names() %>%
   select(c("ano", "nome_curto_indicador",
            "regiao_planejamento", "municipio", "valor")) %>%
   filter(regiao_planejamento == "Grande Fortaleza",                         #<<
