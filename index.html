@@ -157,10 +157,6 @@ Tutorial [aqui](https://timogrossenbacher.ch/2019/04/bivariate-maps-with-ggplot2
 
 O **RStudio** é o IDE (Integrated Development Environment) da linguagem R.
 
---
-
-- Crie um novo R script: `File -&gt; New File -&gt; R Script`
-
 ---
 
 # O ambiente do RStudio
@@ -283,14 +279,6 @@ class(c)
 a &lt;- 2
 b &lt;- 1.5
 b &gt; 6
-```
-
-```
-## [1] FALSE
-```
-
-```r
-a == b
 ```
 
 ```
@@ -626,6 +614,12 @@ round(x = num, digits = 2)
 # Tidyverse
 
 &lt;img src="img/tidyverse-pkgs.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+```r
+install.packages("tidyverse")
+library(tidyverse)
+```
 
 .center[
 [**Documentação do Tidyverse**](https://www.tidyverse.org/)
@@ -2636,6 +2630,19 @@ dados_ens_fund &lt;- read_delim("data/data_ens_fundamental.csv",
            "regiao_planejamento", "municipio", "valor")) %&gt;%
 * filter(regiao_planejamento == "Grande Fortaleza",
 *        nome_curto_indicador == "Taxa de distorção idade/série no ensino fundamental")
+
+head(dados_ens_fund, 5)
+```
+
+```
+## # A tibble: 5 x 5
+##     ano nome_curto_indicador                  regiao_planejamen~ municipio valor
+##   &lt;dbl&gt; &lt;chr&gt;                                 &lt;chr&gt;              &lt;chr&gt;     &lt;dbl&gt;
+## 1  2007 Taxa de distorção idade/série no ens~ Grande Fortaleza   Aquiraz    24.1
+## 2  2007 Taxa de distorção idade/série no ens~ Grande Fortaleza   Cascavel   19.7
+## 3  2007 Taxa de distorção idade/série no ens~ Grande Fortaleza   Caucaia    19.9
+## 4  2007 Taxa de distorção idade/série no ens~ Grande Fortaleza   Chorozin~  27.8
+## 5  2007 Taxa de distorção idade/série no ens~ Grande Fortaleza   Eusébio    13.8
 ```
 
 ---

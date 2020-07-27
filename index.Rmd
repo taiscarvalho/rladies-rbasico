@@ -163,10 +163,6 @@ Tutorial [aqui](https://timogrossenbacher.ch/2019/04/bivariate-maps-with-ggplot2
 
 O **RStudio** é o IDE (Integrated Development Environment) da linguagem R.
 
---
-
-- Crie um novo R script: `File -> New File -> R Script`
-
 ---
 
 # O ambiente do RStudio
@@ -260,7 +256,6 @@ class(c)
 a <- 2
 b <- 1.5
 b > 6
-a == b
 ```
 ]
 
@@ -379,6 +374,11 @@ round(x = num, digits = 2)
 
 ```{r echo = FALSE, out.width = "100%", fig.align = "center"}
 knitr::include_graphics("img/tidyverse-pkgs.png")
+```
+
+```{r echo = TRUE, eval = FALSE}
+install.packages("tidyverse")
+library(tidyverse)
 ```
 
 .center[
@@ -689,6 +689,8 @@ dados_ens_fund <- read_delim("data/data_ens_fundamental.csv",
            "regiao_planejamento", "municipio", "valor")) %>%
   filter(regiao_planejamento == "Grande Fortaleza",                         #<<
          nome_curto_indicador == "Taxa de distorção idade/série no ensino fundamental") #<<
+
+head(dados_ens_fund, 5)
 ```
 
 ---
